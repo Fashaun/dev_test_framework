@@ -1,0 +1,36 @@
+api:
+  version: v1
+dut_group:
+  member:
+    dut1:
+      device_ip: 192.168.127.1
+      device_name: sean
+      device_type: sean
+      lan_ip: 10.100.1.2
+      name: sean
+      password: moxa
+      user_name: admin
+      vip: 10.255.0.1
+    dut2:
+      device_ip: 192.168.127.2
+      device_name: ppp
+      lan_ip: 10.100.1.3
+      name: DUT2
+      vip: 10.255.0.2
+  name: DeviceGroup1
+  password: moxa404!
+  user_name: adminG3
+dut_mrc_server: https://125.125.125.888
+mgmt_group:
+  member:
+    mrc_gw:
+      ip: 10.100.1.1
+      name: MRC_AutoTest_GW1
+    test_server:
+      ip: 10.100.1.33
+      name: RD_Test-Server
+  name: MRC_Auto_test
+  network: 10.100.1.0/16
+  password: moxa404!
+  user_name: MRC_AutoTestG1
+mgmt_mrc_server: https://wanyamrc789.ddns.net

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180622 04:57:53.904" generator="Robot 3.0.4 (Python 2.7.13 on linux2)">
+<suite source="/home/moxa/vpncloud-auto_test/main.robot" id="s1" name="Main">
+<test id="s1-t1" name="Success Example Test">
+<kw name="Login" library="main_lib">
+<arguments>
+<arg>Shaun</arg>
+<arg>yaya</arg>
+</arguments>
+<msg timestamp="20180622 04:57:53.931" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fc2385f65a8&gt;)
+(u'yaya', &lt;StringIO.StringIO instance at 0x7fc2385f65f0&gt;)</msg>
+<status status="PASS" endtime="20180622 04:57:53.931" starttime="20180622 04:57:53.930"></status>
+</kw>
+<status status="PASS" endtime="20180622 04:57:53.931" critical="yes" starttime="20180622 04:57:53.930"></status>
+</test>
+<test id="s1-t2" name="Fail Example Test">
+<kw name="Login" library="main_lib">
+<arguments>
+<arg>Shaun</arg>
+<arg>yaya</arg>
+</arguments>
+<msg timestamp="20180622 04:57:53.932" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fc2385f6950&gt;)
+(u'yaya', &lt;StringIO.StringIO instance at 0x7fc2385f6998&gt;)</msg>
+<status status="PASS" endtime="20180622 04:57:53.932" starttime="20180622 04:57:53.932"></status>
+</kw>
+<kw name="Login" library="main_lib">
+<arguments>
+<arg>Shaun</arg>
+<arg>nono</arg>
+</arguments>
+<msg timestamp="20180622 04:57:53.932" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fc2385f6b90&gt;)
+(u'nono', &lt;StringIO.StringIO instance at 0x7fc2385f6bd8&gt;)</msg>
+<msg timestamp="20180622 04:57:53.933" level="FAIL">
+ Example Test Fail!?
+</msg>
+<msg timestamp="20180622 04:57:53.933" level="DEBUG">Traceback (most recent call last):
+  File "/home/moxa/vpncloud-auto_test/src/main_lib.py", line 35, in Login
+    raise AssertionError("\n Example Test Fail!?\n")</msg>
+<status status="FAIL" endtime="20180622 04:57:53.933" starttime="20180622 04:57:53.932"></status>
+</kw>
+<status status="FAIL" endtime="20180622 04:57:53.933" critical="yes" starttime="20180622 04:57:53.931">
+ Example Test Fail!?
+</status>
+</test>
+<test id="s1-t3" name="W-LAN-FIREFOX">
+<status status="FAIL" endtime="20180622 04:57:53.933" critical="yes" starttime="20180622 04:57:53.933">Test case contains no keywords.</status>
+</test>
+<test id="s1-t4" name="BackEnd_API_Test">
+<kw name="Api Test" library="main_lib">
+<msg timestamp="20180622 04:57:57.022" level="INFO">Check Status in chrome Success</msg>
+<status status="PASS" endtime="20180622 04:57:57.022" starttime="20180622 04:57:53.934"></status>
+</kw>
+<kw name="Save Result" library="main_lib">
+<msg timestamp="20180622 04:57:57.030" level="INFO">PASS</msg>
+<status status="PASS" endtime="20180622 04:57:57.031" starttime="20180622 04:57:57.023"></status>
+</kw>
+<status status="PASS" endtime="20180622 04:57:57.031" critical="yes" starttime="20180622 04:57:53.934"></status>
+</test>
+<status status="FAIL" endtime="20180622 04:57:57.032" starttime="20180622 04:57:53.905"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="2">Critical Tests</stat>
+<stat fail="2" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="Main" pass="2">Main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

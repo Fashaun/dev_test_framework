@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "faf59e2d-8529-4bde-856f-b7dd61f2343e",
+		"name": "MRC-Auto_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "System",
+			"description": "",
+			"item": [
+				{
+					"name": "Syetem Time",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjMsImNyZWF0ZWRBdCI6MTUyODg4MzM2ODcwMH0.2NyGUhxqCuZCnezDEG8kJQ_AGErtAsWmX-1_yBNFmXc"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/system/time",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"system",
+								"time"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MRC Server system port",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjMsImNyZWF0ZWRBdCI6MTUyODg4MzM2ODcwMH0.2NyGUhxqCuZCnezDEG8kJQ_AGErtAsWmX-1_yBNFmXc"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/system/used_port",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"system",
+								"used_port"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MRC Server service port",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjMsImNyZWF0ZWRBdCI6MTUyODg4MzM2ODcwMH0.2NyGUhxqCuZCnezDEG8kJQ_AGErtAsWmX-1_yBNFmXc"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/system/port",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"system",
+								"port"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete MRC Server service port",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjMsImNyZWF0ZWRBdCI6MTUyODg4MzM2ODcwMH0.2NyGUhxqCuZCnezDEG8kJQ_AGErtAsWmX-1_yBNFmXc"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/system/port",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"system",
+								"port"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Software",
+			"description": "",
+			"item": [
+				{
+					"name": "MRC Software Version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/software/version",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"software",
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MRC Patch Version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/software/patch_version",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"software",
+								"patch_version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available Patch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/software/avl_patches",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"software",
+								"avl_patches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available Software Version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{https_dst}}/api/{{version}}/software/avl_version",
+							"host": [
+								"{{https_dst}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"software",
+								"avl_version"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"adminG3\", \"password\": \"moxa404!\"}"
+				},
+				"url": {
+					"raw": "{{https_dst}}/api/{{version}}/login/",
+					"host": [
+						"{{https_dst}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
