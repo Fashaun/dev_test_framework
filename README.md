@@ -21,7 +21,7 @@ Support Debian/Ubuntu
 
 ## Install
 ```
-sudo apt-get update ;sudo apt-get install git;git clone https://github.com/Fashaun/dev_test_framework.git;cd vpncloud-auto_test;sudo bash install.sh
+sudo apt-get update ;sudo apt-get install git;git clone https://github.com/Fashaun/dev_test_framework.git;cd dev_test_framework;sudo bash install.sh
 ```
 
 ## Architecture
