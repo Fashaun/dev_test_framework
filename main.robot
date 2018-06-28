@@ -13,7 +13,7 @@ Fail Example Test
 # Select your DUT Number
 # MRC Frontend Test (Firefox/Chrome)
 W-LAN-FIREFOX
-    #up_fw_by_firefox
+    up_fw_by_firefox
     #delete_gw_by_firefox
     # Create GW and Check Activated Status on GW
     #create_gw_by_firefox

@@ -30,7 +30,7 @@ class FWUpgradeLocal(unittest.TestCase):
     
     def test_f_w_upgrade_local(self):
         driver = self.driver
-        print("Go to MRC GW")
+        print("Go to MRC GW Web")
         driver.get("http://" + gw_lan)
         
         try:
@@ -40,6 +40,7 @@ class FWUpgradeLocal(unittest.TestCase):
         except:
             mrc_robot_uexit()
 
+        driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_loginpage.log")
         try:
             print("Check Login Button")
             WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Login"))
@@ -62,6 +63,7 @@ class FWUpgradeLocal(unittest.TestCase):
         except:
             mrc_robot_uexit()
 
+        driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_login_success.log")
         # Warning: waitForTextPresent may require manual changes
         try:
             print("Wait Upgrade Title")
@@ -78,8 +80,6 @@ class FWUpgradeLocal(unittest.TestCase):
             WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Firmware File:"))
 
             print("Select Upload File ...")
-            # Prerelease directory
-            # /home/moxa/public_html/MRC_Moxa_Remote_Connect/preRelease/MRC-1002
             upload = driver.find_element_by_name("MAR2000_LATEST_FIRMWARE")
             driver.find_element_by_name("MAR2000_LATEST_FIRMWARE").clear()
 
@@ -89,11 +89,12 @@ class FWUpgradeLocal(unittest.TestCase):
                 raise FileNotFoundError(
                     errno.ENOENT, os.strerror(errno.ENOENT), fw_path)        
 
-            driver.find_element_by_name("MAR2000_LATEST_FIRMWARE").send_keys("/home/moxa/public_html/MRC_Moxa_Remote_Connect/preRelease/MRC-1002/MRC1002_v1.2_18050209.rom")
+            driver.find_element_by_name("MAR2000_LATEST_FIRMWARE").send_keys(fw_path)
             
             print("Check Input Element value")
             print upload.get_attribute('value')
             driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+            driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_upgrade.log")
             # TODO: Add Upgrade successful identify element
             driver.implicitly_wait(10)
 
@@ -109,12 +110,14 @@ class FWUpgradeLocal(unittest.TestCase):
         try:
             WebDriverWait(driver, 30, 1).until(EC.presence_of_element_located((By.XPATH, "//section[2]")))
             print("MRC GW Bootup successfully ...")
+            driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_bootup.log")
             #if self.is_element_present(By.XPATH, "//section[2]"): break
         except:
             mrc_robot_uexit()
         finally:
             mrc_robot_nexit()
 
+        driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_loginagain.log")
         # Warning: waitForTextPresent may require manual changes
         for i in range(60):
             try:

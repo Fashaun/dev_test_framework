@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "--Check System Deployment--"
-echo "Check Firmware Location"
+echo "Check Firmware Location ..."
 [ ! -f /home/moxa_testeam/public_html/firmware/MRC1002_v1.2_18050209.rom ] && echo "No default fimware" && exit
 echo "--Check Network Deployment--"
 echo "Check management network Interface ..."
