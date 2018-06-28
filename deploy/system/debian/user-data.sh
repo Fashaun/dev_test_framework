@@ -9,7 +9,7 @@ a2enmod userdir
 echo "Download firefox"
 wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/60.0/linux-x86_64/en-US/firefox-60.0.tar.bz2
 tar xvf firefox-60.0.tar.bz2
-cp firefox/firefox /usr/bin
+ln -s $(pwd)/firefox/firefox /usr/bin/firefox
 
 echo "Download chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
