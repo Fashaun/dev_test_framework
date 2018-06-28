@@ -29,8 +29,7 @@ echo "Check Current Directory : $(pwd)"
 # Check apt-get install package
 
 
-exec 1>&3 3>&-
-exec 2>&3 3>&-
+exec 1>&3 2>&3 3>&-
 # Setup mgmt network
 PS3="MRC-AutoTest: \n"
 echo -e "Select your test server ... \n"
