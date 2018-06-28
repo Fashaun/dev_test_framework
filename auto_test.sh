@@ -13,7 +13,7 @@ PATH=$PATH:$(pwd)/driver/
 YQ="/home/$(whoami)/.local/bin/yq"
 ROBOT="/home/$(whoami)/.local/bin/robot"
 # globals
-work_dir=$(pwd)/work
+work_dir=$(pwd)/report
 config_data="$(pwd)/data/config.yaml"
 config_savedata="$(pwd)/data/config.yaml.save"
 user_config_data="$(pwd)/data/user_config.ini"

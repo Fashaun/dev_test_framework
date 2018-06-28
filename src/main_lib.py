@@ -93,9 +93,8 @@ def check_status_by_chrome():
 # Save log and report
 def save_result():
     logger.console("\nSave output to log ...\n")
-    os.system('cp log.html output.xml report.html result')
     os.system('cp driver/*.log log')
-    os.system('mv ./newman/* result')
+    os.system('mv ./newman/* report')
     print("PASS")
 
 # API test in newman
