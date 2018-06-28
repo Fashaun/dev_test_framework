@@ -19,8 +19,8 @@
 # Define log file
 install_log="/tmp/auto_test_system/install.log"
 install_err_log="/tmp/auto_test_system/install_err.log"
-exec 2>$install_log
-exec 1>$install_err_log
+exec 2>$install_err_log
+exec 1>$install_log
 
 echo "Check Current Directory : $(pwd)"
 ./deploy/system/debian/user-data.sh
