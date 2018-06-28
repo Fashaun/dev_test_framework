@@ -19,7 +19,7 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-apt-get -y install dialog python python-pip
+apt-get -y install dialog python python-pip vim openvpn
 python_ver=""
 pip_ver=""
 pip install robotframework
@@ -27,4 +27,3 @@ apt-get install -y apache2
 a2enmod userdir
 systemctl restart apache2
 a2enmod userdir
-apt-get install openvpn

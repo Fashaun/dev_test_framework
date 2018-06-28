@@ -26,6 +26,12 @@ mgmt_group:
     password: moxa404!
     network: 10.100.1.0/16
     member:
+        testeam_server:
+            name: RD_Test-Server
+            ip: 10.100.1.65
+        test_server-x:
+            name: RD_Test-Server
+            ip: 10.100.1.97
         test_server:
             name: RD_Test-Server
             ip: 10.100.1.33

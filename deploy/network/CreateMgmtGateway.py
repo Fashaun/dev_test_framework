@@ -454,18 +454,6 @@ class CreateGateway(unittest.TestCase):
             mrc_robot_uexit()
         finally:
             mrc_robot_nexit()
-            
-        #else: self.fail("time out")
-        # ERROR: Caught exception [ERROR: Unsupported command [getEval | storedVars['i']=storedVars['i']+1 | ]]
-        # ERROR: Caught exception [ERROR: Unsupported command [endWhile |  | ]]
-        # ERROR: Caught exception [unknown command [gotolabel]]
-        # ERROR: Caught exception [ERROR: Unsupported command [label | Connection | ]]
-        print("Connection is successful")
-        print("Gateway status is Online (Gateway)")
-        # ERROR: Caught exception [ERROR: Unsupported command [label | FailActivate | ]]
-        print("Activation Timeout")
-        # ERROR: Caught exception [ERROR: Unsupported command [label | FailConnection | ]]
-        print("Connection loss")
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
