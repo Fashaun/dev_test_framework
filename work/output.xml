@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180628 03:39:54.301" generator="Robot 3.0.4 (Python 2.7.13 on linux2)">
+<robot generated="20180628 04:39:37.570" generator="Robot 3.0.4 (Python 2.7.13 on linux2)">
 <suite source="/home/moxa/commit_autotest/dev_test_framework/main.robot" id="s1" name="Main">
 <test id="s1-t1" name="Success Example Test">
 <kw name="Login" library="main_lib">
@@ -7,11 +7,11 @@
 <arg>Shaun</arg>
 <arg>yaya</arg>
 </arguments>
-<msg timestamp="20180628 03:39:54.356" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fb492d28c68&gt;)
-(u'yaya', &lt;StringIO.StringIO instance at 0x7fb492d2f128&gt;)</msg>
-<status status="PASS" endtime="20180628 03:39:54.356" starttime="20180628 03:39:54.356"></status>
+<msg timestamp="20180628 04:39:37.596" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7f41517f8200&gt;)
+(u'yaya', &lt;StringIO.StringIO instance at 0x7f41517f8248&gt;)</msg>
+<status status="PASS" endtime="20180628 04:39:37.596" starttime="20180628 04:39:37.595"></status>
 </kw>
-<status status="PASS" endtime="20180628 03:39:54.356" critical="yes" starttime="20180628 03:39:54.355"></status>
+<status status="PASS" endtime="20180628 04:39:37.596" critical="yes" starttime="20180628 04:39:37.595"></status>
 </test>
 <test id="s1-t2" name="Fail Example Test">
 <kw name="Login" library="main_lib">
@@ -19,33 +19,33 @@
 <arg>Shaun</arg>
 <arg>yaya</arg>
 </arguments>
-<msg timestamp="20180628 03:39:54.357" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fb492d2f5a8&gt;)
-(u'yaya', &lt;StringIO.StringIO instance at 0x7fb492d2f5f0&gt;)</msg>
-<status status="PASS" endtime="20180628 03:39:54.358" starttime="20180628 03:39:54.357"></status>
+<msg timestamp="20180628 04:39:37.597" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7f41517f85a8&gt;)
+(u'yaya', &lt;StringIO.StringIO instance at 0x7f41517f85f0&gt;)</msg>
+<status status="PASS" endtime="20180628 04:39:37.597" starttime="20180628 04:39:37.597"></status>
 </kw>
 <kw name="Login" library="main_lib">
 <arguments>
 <arg>Shaun</arg>
 <arg>nono</arg>
 </arguments>
-<msg timestamp="20180628 03:39:54.358" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7fb492d2f7e8&gt;)
-(u'nono', &lt;StringIO.StringIO instance at 0x7fb492d2f830&gt;)</msg>
-<msg timestamp="20180628 03:39:54.358" level="FAIL">
+<msg timestamp="20180628 04:39:37.597" level="INFO">(u'Shaun', &lt;StringIO.StringIO instance at 0x7f41517f87e8&gt;)
+(u'nono', &lt;StringIO.StringIO instance at 0x7f41517f8830&gt;)</msg>
+<msg timestamp="20180628 04:39:37.597" level="FAIL">
  Example Test Fail!?
 </msg>
-<msg timestamp="20180628 03:39:54.358" level="DEBUG">Traceback (most recent call last):
+<msg timestamp="20180628 04:39:37.598" level="DEBUG">Traceback (most recent call last):
   File "/home/moxa/commit_autotest/dev_test_framework/src/main_lib.py", line 35, in Login
     raise AssertionError("\n Example Test Fail!?\n")</msg>
-<status status="FAIL" endtime="20180628 03:39:54.358" starttime="20180628 03:39:54.358"></status>
+<status status="FAIL" endtime="20180628 04:39:37.598" starttime="20180628 04:39:37.597"></status>
 </kw>
-<status status="FAIL" endtime="20180628 03:39:54.359" critical="yes" starttime="20180628 03:39:54.357">
+<status status="FAIL" endtime="20180628 04:39:37.598" critical="yes" starttime="20180628 04:39:37.596">
  Example Test Fail!?
 </status>
 </test>
 <test id="s1-t3" name="W-LAN-FIREFOX">
-<status status="FAIL" endtime="20180628 03:39:54.359" critical="yes" starttime="20180628 03:39:54.359">Test case contains no keywords.</status>
+<status status="FAIL" endtime="20180628 04:39:37.598" critical="yes" starttime="20180628 04:39:37.598">Test case contains no keywords.</status>
 </test>
-<status status="FAIL" endtime="20180628 03:39:54.360" starttime="20180628 03:39:54.303"></status>
+<status status="FAIL" endtime="20180628 04:39:37.599" starttime="20180628 04:39:37.571"></status>
 </suite>
 <statistics>
 <total>

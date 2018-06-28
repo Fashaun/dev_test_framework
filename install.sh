@@ -49,6 +49,13 @@ do
     #echo "You picked $FILENAME ($REPLY), it is now only accessible to you."
 done
 
+# Generate a user
+echo "Generate user dir"
+./deploy/system/debian/gen_user.sh
+
+echo "Generate fw dir"
+# Create FW dir
+./deploy/system/debian/create_public_html.sh
 
 exec 1>&3 2>&3 3>&-
 # Check deploy

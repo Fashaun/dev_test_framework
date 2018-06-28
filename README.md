@@ -24,6 +24,12 @@ Support Debian/Ubuntu
 sudo apt-get update ;sudo apt-get install git;git clone https://github.com/Fashaun/dev_test_framework.git;cd dev_test_framework;sudo bash install.sh
 ```
 
+## Run Test
+
+```
+bash auto_test.sh
+```
+
 ## Architecture
 Directory 
 
@@ -32,5 +38,4 @@ Directory
         - deploy: Deploy script including system and network
 
         - config: Deploy config
-
 
