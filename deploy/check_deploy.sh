@@ -9,7 +9,7 @@ do
         echo "Wait for management network ready or press [Ctrl-c] to exit ..."
     else
         echo "Check openvpn success"
-        continue
+        break
     fi
     sleep 1
 done
