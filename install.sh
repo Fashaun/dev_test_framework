@@ -27,18 +27,21 @@ echo "Check Current Directory : $(pwd)"
 ./deploy/system/debian/user-data.sh
 
 # Check apt-get install package
+./deploy/check_apt-get.sh
 
-
+# Close fd3
 exec 1>&3 2>&3 3>&-
 # Setup mgmt network
-PS3="MRC-AutoTest: \n"
+PS3="MRC-AutoTest: "
 echo -e "Select your test server ... \n"
 cat config/README.md
 select FILENAME in config/ovpn/*;
 do
     case $REPLY in
     "1"|"2"|"3") 
-        openvpn $FILENAME
+        exec 3>&1 1>$install_log
+        exec 3>&2 2>$install_err_log
+        openvpn $FILENAME &
         break
     ;;
     *) echo "Please select one of exist file";;
@@ -48,3 +51,4 @@ do
 done
 
 # Check deploy
+./deploy/check_deploy.sh

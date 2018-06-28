@@ -1,6 +1,7 @@
 # dut server and mgmt server could be different
 dut_mrc_server: https://wanyamrc789.ddns.net
 mgmt_mrc_server: https://wanyamrc789.ddns.net
+fw_path: /home/moxa/public_html/MRC_Moxa_Remote_Connect/preRelease/MRC-1002/MRC1002_v1.2_18050209.rom
 dut_group:
     name: DeviceGroup1
     user_name: adminG3
@@ -25,6 +26,12 @@ mgmt_group:
     password: moxa404!
     network: 10.100.1.0/16
     member:
+        testeam_server:
+            name: RD_Test-Server
+            ip: 10.100.1.65
+        test_server-x:
+            name: RD_Test-Server
+            ip: 10.100.1.97
         test_server:
             name: RD_Test-Server
             ip: 10.100.1.33
