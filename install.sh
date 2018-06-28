@@ -40,7 +40,7 @@ do
     "1"|"2"|"3") 
         exec 3>&1 1>>$install_log
         exec 3>&2 2>>$install_err_log
-        openvpn $FILENAME &
+        openvpn "$FILENAME" &
         break
     ;;
     *) echo "Please select one of exist file";;
@@ -50,5 +50,6 @@ do
 done
 
 
+exec 1>&3 2>&3 3>&-
 # Check deploy
 ./deploy/check_deploy.sh
