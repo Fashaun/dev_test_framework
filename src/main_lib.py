@@ -93,8 +93,9 @@ def check_status_by_chrome():
 # Save log and report
 def save_result():
     logger.console("\nSave output to log ...\n")
-    os.system('cp geckodriver.log log.html output.xml report.html ~/public_html/MRC_Moxa_Remote_Connect/test_report')
-    os.system('mv ./newman/* ~/public_html/MRC_Moxa_Remote_Connect/test_report')
+    os.system('cp log.html output.xml report.html result')
+    os.system('cp driver/*.log log')
+    os.system('mv ./newman/* result')
     print("PASS")
 
 # API test in newman

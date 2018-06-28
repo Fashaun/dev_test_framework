@@ -18,14 +18,14 @@ W-LAN-FIREFOX
     # Create GW and Check Activated Status on GW
     #create_gw_by_firefox
     # Check Status on Server
-    #check_status_by_firefox
+    check_status_by_firefox
     #check_network_mode  w-lan
 
-#W-LAN-CHROME
+W-LAN-CHROME
     #up_fw_by_chrome
     #delete_gw_by_chrome
     #create_gw_by_chrome
-    #check_status_by_chrome
+    check_status_by_chrome
     #check_network_mode w-lan
 
 #W-LAN_NAT
@@ -51,3 +51,6 @@ W-LAN-FIREFOX
 #BackEnd_API_Test
     #api_test
     #save_result
+
+SAVE_RESULT
+    save_result
