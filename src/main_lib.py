@@ -8,7 +8,6 @@ import subprocess
 # Robot Framework Library
 from robot.api import logger
 
-
 # Debug
 #pdb.Pdb(stdout=sys.__stdout__).set_trace()
 
@@ -45,7 +44,6 @@ def up_fw_by_firefox():
 
 def delete_gw_by_firefox():
     logger.console("\nRun delete gw ...\n")
-    #os.system('python ./mrc_webdriver/firefox/DeleteGateway.py')
     check_script = src_dir + '/mrc_webdriver/firefox/DeleteGateway.py'
     if subprocess.call(['python', check_script]) == 0:
         print("Run Upgrade gw in firefox Success")
@@ -54,7 +52,6 @@ def delete_gw_by_firefox():
 
 def create_gw_by_firefox():
     logger.console("\nRun create gw ...\n")
-    #os.system('python ./mrc_webdriver/firefox/CreateGateway.py')
     check_script = src_dir + '/mrc_webdriver/firefox/CreateGateway.py'
     if subprocess.call(['python', check_script]) == 0:
         print("Create Gateway success")
