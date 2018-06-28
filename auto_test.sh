@@ -10,8 +10,8 @@ tar -xvf $(pwd)/driver/gecko* -C $(pwd)/driver
 # Add driver path
 PATH=$PATH:$(pwd)/driver/
 
-YQ="/home/moxa/.local/bin/yq"
-ROBOT="/home/moxa/.local/bin/robot"
+YQ="/home/$(whoami)/.local/bin/yq"
+ROBOT="/home/$(whoami)/.local/bin/robot"
 # globals
 work_dir=$(pwd)/work
 config_data="$(pwd)/data/config.yaml"
@@ -63,11 +63,12 @@ exec 3>&1
     dialog --textbox $config_savedata 22 70
 
     # Check DUT (gw/server) link function
-    curl -k $dut_server 
-    chk_res=$?
-    curl -k $dut_gw_ip
-    chk_res="$chk_res$?"
-    [ $chk_res != "00" ] && echo "Please Check your DUT GW/Server" && continue
+    #curl -k $dut_server 
+    #chk_res=$?
+    #curl -k $dut_gw_ip
+    #chk_res="$chk_res$?"
+    #[ $chk_res != "00" ] && echo "Please Check your DUT GW/Server" && continue
+    break
 
     # close fd
     exec 3>&-
