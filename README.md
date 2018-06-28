@@ -11,8 +11,8 @@ Support Debian/Ubuntu
         - chrome: 
         - firefox: 
     browser
-        - chrome: Google Chrome 67.0.3396.87
-        - firefox: Mozilla Firefox 60.0
+        - chrome: Google Chrome 67.0.3396.87 : https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        - firefox: Mozilla Firefox 60.0 : https://download-installer.cdn.mozilla.net/pub/firefox/releases/59.0.2/linux-x86_64/en-US/firefox-60.0.0.tar.bz2
     selenium:
 
 ### Backend
@@ -38,4 +38,6 @@ Directory
         - deploy: Deploy script including system and network
 
         - config: Deploy config
+
+        - data: Test config
 
