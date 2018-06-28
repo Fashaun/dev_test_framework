@@ -19,18 +19,21 @@
 # Define log file
 install_log="/tmp/auto_test_system/install.log"
 install_err_log="/tmp/auto_test_system/install_err.log"
-exec 2>$install_err_log
-exec 1>$install_log
+exec 3>&1 1>$install_log
+exec 3>&2 2>$install_err_log
+
 
 echo "Check Current Directory : $(pwd)"
 ./deploy/system/debian/user-data.sh
 
 # Check apt-get install package
 
-# Setup mgmt network
 
-PS3="MRC-AutoTest: "
-echo "Select your test server ... \n"
+exec 1>&3 3>&-
+exec 2>&3 3>&-
+# Setup mgmt network
+PS3="MRC-AutoTest: \n"
+echo -e "Select your test server ... \n"
 cat config/README.md
 select FILENAME in config/ovpn/*;
 do
