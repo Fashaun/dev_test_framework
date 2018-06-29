@@ -34,7 +34,7 @@ class FWUpgradeLocal(unittest.TestCase):
         driver.get("http://" + gw_lan)
         
         try:
-            print("Check login page redirect")
+            print("Wait for login page")
             WebDriverWait(driver, 30, 1).until(EC.presence_of_element_located((By.XPATH, "//section[2]")))
             #if self.is_element_present(By.XPATH, "//section[2]"): break
         except:
@@ -90,21 +90,20 @@ class FWUpgradeLocal(unittest.TestCase):
                     errno.ENOENT, os.strerror(errno.ENOENT), fw_path)        
 
             driver.find_element_by_name("MAR2000_LATEST_FIRMWARE").send_keys(fw_path)
-            
+            driver.find_element_by_name("MAR2000_LATEST_FIRMWARE").send_keys("/home/moxa_testeam/public_html/firmware/MRC1002_v1.2_18050209.rom")
+
             print("Check Input Element value")
             print upload.get_attribute('value')
             driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
             driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_upgrade.log")
             # TODO: Add Upgrade successful identify element
             driver.implicitly_wait(10)
-
             print("Upload File ...")
             #if re.search(r"^[\s\S]*Firmware File:[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
         except:
             mrc_robot_uexit()
 
         # Check Tunnel Stauts on GW
-        
         print("Go to Gateway Web ...")
         driver.get("http://" + gw_lan)
         try:
@@ -147,13 +146,11 @@ class FWUpgradeLocal(unittest.TestCase):
             time.sleep(1)
         else: self.fail("time out")
         driver.find_element_by_css_selector("li.dropdown > a.mx-snap-nav-list-item > span.mx-sidenav-item-text").click()
-        # ERROR: Caught exception [ERROR: Unsupported command [getEval | 0 | ]]
+
         Act = "Activated / Online"
-        # ERROR: Caught exception [ERROR: Unsupported command [while | (${i} !=10) | ]]
-        print(Act)
-        print(i)
+        print("Check Activation Status : "+Act )
         var2 = driver.find_element_by_xpath("//div[2]/div[2]/div").text
-        print(var2)
+        print("Current Activation Status : "+var2 )
         # ERROR: Caught exception [ERROR: Unsupported command [gotoIf | storedVars['Act']==storedVars['var2'] | ActivationSuccess]]
         driver.find_element_by_xpath("//div/div/div/div/div/button").click()
         # Warning: waitForTextPresent may require manual changes
@@ -170,6 +167,7 @@ class FWUpgradeLocal(unittest.TestCase):
         driver.find_element_by_xpath("//div[@id='mx-landing']/div[3]/div/div/div/div/div/div[3]/div[2]/a").click()
         # ERROR: Caught exception [ERROR: Unsupported command [getEval | 0 | ]]
         con = "Connect"
+        print("Check connect status :" + con)
         # ERROR: Caught exception [ERROR: Unsupported command [while | (${i} !=5) | ]]
         # Warning: waitForTextPresent may require manual changes
         for i in range(60):
@@ -179,7 +177,7 @@ class FWUpgradeLocal(unittest.TestCase):
             time.sleep(1)
         else: self.fail("time out")
         stat = driver.find_element_by_xpath("//div[2]/div/div/div/div/div/div[2]/div/div").text
-        print(stat)
+        print("Current connect status :" + con)
         # ERROR: Caught exception [ERROR: Unsupported command [gotoIf | storedVars['con']==storedVars['stat'] | Connection]]
         driver.find_element_by_xpath("//div[@id='mx-landing']/div[3]/div/div/div[2]/div/div[2]/div/div/div/div/div/div/div/div/button[2]").click()
         # Warning: waitForTextPresent may require manual changes
@@ -189,11 +187,6 @@ class FWUpgradeLocal(unittest.TestCase):
             except: pass
             time.sleep(1)
         else: self.fail("time out")
-        print(i)
-        print("Connection is successful")
-        print("Gateway status is Online (Gateway)")
-        print("Activation Timeout")
-        print("Connection loss")
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

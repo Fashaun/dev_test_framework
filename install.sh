@@ -60,3 +60,5 @@ echo "Generate fw dir"
 exec 1>&3 2>&3 3>&-
 # Check deploy
 ./deploy/check_deploy.sh
+
+echo "Please Run 'bash auto_test.sh' after exit"

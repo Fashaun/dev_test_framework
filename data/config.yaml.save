@@ -1,7 +1,7 @@
 # dut server and mgmt server could be different
 dut_mrc_server: https://wanyamrc789.ddns.net
 mgmt_mrc_server: https://wanyamrc789.ddns.net
-fw_path: /home/moxa/public_html/MRC_Moxa_Remote_Connect/preRelease/MRC-1002/MRC1002_v1.2_18050209.rom
+fw_path: /home/moxa_testeam/public_html/firmware/MRC1002_v1.2_18050209.rom
 dut_group:
     name: DeviceGroup1
     user_name: adminG3
