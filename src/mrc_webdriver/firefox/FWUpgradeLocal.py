@@ -113,10 +113,21 @@ class FWUpgradeLocal(unittest.TestCase):
             #if self.is_element_present(By.XPATH, "//section[2]"): break
         except:
             mrc_robot_uexit()
-        finally:
-            mrc_robot_nexit()
 
-        driver.save_screenshot(result_dir + "/FWUpgradeLocal_firefox_loginagain.log")
+        try:
+            print("Check Login Button")
+            WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Login"))
+            #if re.search(r"^[\s\S]*Login[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
+            print("Login ...")
+
+            driver.find_element_by_xpath("//input[@type='text']").clear()
+            driver.find_element_by_xpath("//input[@type='text']").send_keys(gw_username)
+            driver.find_element_by_xpath("//input[@type='password']").clear()
+            driver.find_element_by_xpath("//input[@type='password']").send_keys(gw_password)
+            driver.find_element_by_xpath("//input[@value='Sign in']").click()
+        except:
+            mrc_robot_uexit()
+
         # Warning: waitForTextPresent may require manual changes
         for i in range(60):
             try:
@@ -148,7 +159,7 @@ class FWUpgradeLocal(unittest.TestCase):
         driver.find_element_by_css_selector("li.dropdown > a.mx-snap-nav-list-item > span.mx-sidenav-item-text").click()
 
         Act = "Activated / Online"
-        print("Check Activation Status : "+Act )
+        print("Check Activation Status : "+ Act )
         var2 = driver.find_element_by_xpath("//div[2]/div[2]/div").text
         print("Current Activation Status : "+var2 )
         # ERROR: Caught exception [ERROR: Unsupported command [gotoIf | storedVars['Act']==storedVars['var2'] | ActivationSuccess]]

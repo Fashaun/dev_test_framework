@@ -1,5 +1,4 @@
 #!/bin/bash 
-
 set -o nounset                              # Treat unset variables as an error
 
 # For Installation
@@ -33,15 +32,15 @@ mkdir -p $work_dir
 #dut_gw_name=$(cat $config_data | $YQ .dut_group.member.dut1.name)
 #dut_dev_type=$(cat $config_data | $YQ .dut_group.member.dut1.device_type)
 #dut_dev_name=$(cat $config_data | $YQ .dut_group.member.dut1.device_name)
-dut_gw_ip=$(cat $config_data | $YQ .dut_group.member.dut1.lan_ip)
+dut_gw_ip=$(cat $config_data | $YQ -r .dut_group.member.dut1.lan_ip)
 source $user_config_data
 dut_num="1"
 
 cp $config_data $config_savedata
+
 # open fd
-    while true; do
-break
 exec 3>&1
+while true; do
     # Store data to $VALUES variable
     VALUES=$(dialog --ok-label "Submit" \
           --backtitle "Linux User Managment" \
@@ -54,7 +53,6 @@ exec 3>&1
         "Device name "     4 1	"$dut_dev_name" 	4 20 30 0 \
     2>&1 1>&3)
 
-
     # display values just entered
     echo "$VALUES"
 
@@ -63,17 +61,15 @@ exec 3>&1
     dialog --textbox $config_savedata 22 70
 
     # Check DUT (gw/server) link function
-    #curl -k $dut_server 
-    #chk_res=$?
-    #curl -k $dut_gw_ip
-    #chk_res="$chk_res$?"
-    #[ $chk_res != "00" ] && echo "Please Check your DUT GW/Server" && continue
+    curl -m 5 -s -k $dut_server > /dev/null
+    chk_res=$?
+    curl -m 5 -s http://$dut_gw_ip > /dev/null
+    chk_res="$chk_res$?"
+    [ $chk_res != "00" ] && echo "Please Check your DUT GW/Server" && exit
     break
-
-    # close fd
-    exec 3>&-
 done
-#exit
+# close fd
+exec 3>&-
 
 # Clean pyc function 
 rm ./src/mrc_webdriver/*.pyc  ./src/mrc_webdriver/firefox/*.pyc  ./src/mrc_webdriver/chrome/*.pyc
