@@ -9,8 +9,18 @@ tar -xvf $(pwd)/driver/gecko* -C $(pwd)/driver
 # Add driver path
 PATH=$PATH:$(pwd)/driver/
 
-YQ="/home/$(whoami)/.local/bin/yq"
-ROBOT="/home/$(whoami)/.local/bin/robot"
+if [ -z "$(which yq)" ]; then
+    YQ="$(which yq)"
+else
+    YQ="/home/$(whoami)/.local/bin/yq"
+fi
+
+if [ -z "$(which yq)" ]; then
+    ROBOT="$(which robot)"
+else
+    ROBOT="/home/$(whoami)/.local/bin/robot"
+fi
+
 # globals
 work_dir=$(pwd)/report
 config_data="$(pwd)/data/config.yaml"
