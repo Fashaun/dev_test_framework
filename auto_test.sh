@@ -15,7 +15,7 @@ else
     YQ="/home/$(whoami)/.local/bin/yq"
 fi
 
-if [ -z "$(which yq)" ]; then
+if [ -z "$(which robot)" ]; then
     ROBOT="$(which robot)"
 else
     ROBOT="/home/$(whoami)/.local/bin/robot"
