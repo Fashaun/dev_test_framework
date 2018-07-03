@@ -128,34 +128,23 @@ class FWUpgradeLocal(unittest.TestCase):
         except:
             mrc_robot_uexit()
 
-        # Warning: waitForTextPresent may require manual changes
-        for i in range(60):
-            try:
-                if re.search(r"^[\s\S]*Login[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
-        driver.find_element_by_xpath("//input[@type='text']").clear()
-        driver.find_element_by_xpath("//input[@type='text']").send_keys(gw_username)
-        driver.find_element_by_xpath("//input[@type='password']").clear()
-        driver.find_element_by_xpath("//input[@type='password']").send_keys(gw_password)
-        driver.find_element_by_xpath("//input[@value='Sign in']").click()
-        for i in range(60):
-            try:
-                if self.is_element_present(By.CSS_SELECTOR, "ol.breadcrumb"): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
+        print("Login Success")
+
+        try:
+            WebDriverWait(driver, 20, 1).until(EC.presence_of_element_located((By.CSS_SELECTOR, "ol.breadcrumb")))
+        except:
+            mrc_robot_uexit()
+
         driver.find_element_by_id("mx-navbar-toggle").click()
         driver.find_element_by_link_text("Gateway").click()
         driver.find_element_by_link_text("Activation Status").click()
-        # Warning: waitForTextPresent may require manual changes
-        for i in range(60):
-            try:
-                if re.search(r"^[\s\S]*Activation Status[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
+
+        try:
+            WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Activation Status"))
+            #if re.search(r"^[\s\S]*Activation Status[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
+        except:
+            mrc_robot_uexit()
+
         driver.find_element_by_css_selector("li.dropdown > a.mx-snap-nav-list-item > span.mx-sidenav-item-text").click()
 
         Act = "Activated / Online"
@@ -163,14 +152,15 @@ class FWUpgradeLocal(unittest.TestCase):
         var2 = driver.find_element_by_xpath("//div[2]/div[2]/div").text
         print("Current Activation Status : "+var2 )
         # ERROR: Caught exception [ERROR: Unsupported command [gotoIf | storedVars['Act']==storedVars['var2'] | ActivationSuccess]]
+
         driver.find_element_by_xpath("//div/div/div/div/div/button").click()
         # Warning: waitForTextPresent may require manual changes
-        for i in range(60):
-            try:
-                if re.search(r"^[\s\S]*Activation Method:[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
+        try:
+            WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Activation Methon:"))
+            #if re.search(r"^[\s\S]*Activation Method:[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
+        except:
+            mrc_robot_uexit()
+
         # ERROR: Caught exception [ERROR: Unsupported command [getEval | storedVars['i']=storedVars['i']+1 | ]]
         # ERROR: Caught exception [unknown command [gotolabel]]
         # ERROR: Caught exception [ERROR: Unsupported command [label | ActivationSuccess | ]]
@@ -180,24 +170,24 @@ class FWUpgradeLocal(unittest.TestCase):
         con = "Connect"
         print("Check connect status :" + con)
         # ERROR: Caught exception [ERROR: Unsupported command [while | (${i} !=5) | ]]
+
         # Warning: waitForTextPresent may require manual changes
-        for i in range(60):
-            try:
-                if re.search(r"^[\s\S]*Tunnel Status[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
+        try:
+            WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Tunnel Status:"))
+            #if re.search(r"^[\s\S]*Tunnel Status[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
+        except: pass
+
         stat = driver.find_element_by_xpath("//div[2]/div/div/div/div/div/div[2]/div/div").text
         print("Current connect status :" + con)
         # ERROR: Caught exception [ERROR: Unsupported command [gotoIf | storedVars['con']==storedVars['stat'] | Connection]]
+
         driver.find_element_by_xpath("//div[@id='mx-landing']/div[3]/div/div/div[2]/div/div[2]/div/div/div/div/div/div/div/div/button[2]").click()
+
         # Warning: waitForTextPresent may require manual changes
-        for i in range(60):
-            try:
-                if re.search(r"^[\s\S]*Tunnel Status:[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
-            except: pass
-            time.sleep(1)
-        else: self.fail("time out")
+        try:
+            WebDriverWait(driver, 10, 1).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "BODY"), "Tunnel Status:"))
+            #if re.search(r"^[\s\S]*Tunnel Status:[\s\S]*$", driver.find_element_by_css_selector("BODY").text): break
+        except: pass
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
